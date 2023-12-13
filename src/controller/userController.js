@@ -1,18 +1,26 @@
-import { authentication } from "../services/userService.js";
+import { responseRequestBad } from "../helper/urlhandle.js";
+import { authentication, createUserService } from "../services/userService.js";
 
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
-    console.log(email);
-    if (req.body.email === undefined || req.body.email === null) {
-      res.send("email not is value");
-    }
-    if (req.body.password === undefined || req.body.email === null) {
-        res.send("password not is value");
-    }
     const responseAuth = await authentication(email, password);
     res.send(responseAuth)
   } catch (error) {
-    res.send(error);
+    responseRequestBad(res, 400, error.message)
   }
 };
+
+export const createUser = async (req, res) => {
+  try {
+    const dataUser = req.body;
+    const response = await createUserService(dataUser);
+    res.status(200).json({
+      core:200,
+      message:"user Created Success",
+      data: response
+    })
+  } catch (error) {
+    responseRequestBad(res, 400, error.message)
+  }
+}

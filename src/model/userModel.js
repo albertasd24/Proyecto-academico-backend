@@ -11,5 +11,5 @@ const userSchema = new Schema(
   },
   { versionKey: false }
 );
-const userModel = model("templates", userSchema);
+const userModel = model("usuarios", userSchema);
 export { userModel };

@@ -6,6 +6,6 @@ export const encrypt = async (key) => {
 };
 
 export const compareEncrypt = async (text, keyEncrypt) => {
-    const isSuccess = await compare(text, keyEncrypt);
-    return isSuccess;
+    const isValid = await compare(text, keyEncrypt);
+    return isValid;
 }

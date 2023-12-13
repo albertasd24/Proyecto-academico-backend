@@ -7,5 +7,5 @@ const areaSchema = new Schema(
   },
   { versionKey: false }
 );
-const areaModel = model("templates", areaSchema);
+const areaModel = model("areas", areaSchema);
 export { areaModel };
