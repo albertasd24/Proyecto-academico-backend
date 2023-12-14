@@ -4,6 +4,7 @@ const areaSchema = new Schema(
   {
     image:String,
     name: String,
+    proccess: Array
   },
   { versionKey: false }
 );
